@@ -249,40 +249,17 @@ section{border-top:1px solid var(--line-soft)}
 .cinfo dd{margin:0;color:var(--hero-ink);font-size:15px}
 .cinfo dd a{color:#8FD0F4;text-decoration:none}
 .cinfo dd a:hover{text-decoration:underline}
-form.cform{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:620px){form.cform{grid-template-columns:1fr}}
-.f{display:flex;flex-direction:column;gap:7px}
-.f.full{grid-column:1/-1}
-.f label{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--hero-ink-2)}
-.f label .req{color:#8FD0F4}
-.f input,.f select,.f textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--hero-line);
-  color:var(--hero-ink);padding:12px 14px;border-radius:2px;font-family:inherit;font-size:15px;line-height:1.5}
-.f textarea{min-height:132px;resize:vertical}
-.f select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#8FD0F4 50%),linear-gradient(135deg,#8FD0F4 50%,transparent 50%);
-  background-position:calc(100% - 19px) 21px,calc(100% - 13px) 21px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:38px}
-.f select option{background:#04202F;color:#EAF3F9}
-.f input::placeholder,.f textarea::placeholder{color:rgba(156,192,216,.6)}
-.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:#8FD0F4;background:rgba(255,255,255,.1)}
-.f .err{font-size:12.5px;color:#FFB3A7;min-height:0}
-.f.bad input,.f.bad select,.f.bad textarea{border-color:#FFB3A7}
-.agree{grid-column:1/-1;display:flex;gap:11px;align-items:flex-start;font-size:13.4px;color:#CFE4F1;line-height:1.65}
-.agree input{width:17px;height:17px;margin-top:4px;flex-shrink:0;accent-color:#8FD0F4}
-.agree button{background:none;border:none;padding:0;color:#8FD0F4;text-decoration:underline;cursor:pointer;font-size:13.4px}
-.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
-.fsubmit{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:4px}
-.fnote{font-size:12.6px;color:var(--hero-ink-2);margin:0}
-.fstatus{grid-column:1/-1;font-size:14px;padding:13px 16px;border:1px solid var(--hero-line);border-radius:2px;
-  background:rgba(255,255,255,.06)}
-.fstatus[hidden]{display:none}
-.fstatus.ok{border-color:#8FD0F4;color:#CFE4F1}
-.fstatus.bad{border-color:#FFB3A7;color:#FFD6CE}
-.fstatus p{margin:0 0 8px}.fstatus p:last-child{margin-bottom:0}
-.fstatus .alt{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--hero-line)}
-.fstatus .alt span{font-size:12.8px;color:var(--hero-ink-2);width:100%}
-.fstatus .alt button,.fstatus .alt a{background:transparent;border:1px solid var(--hero-line);color:#8FD0F4;padding:8px 13px;
-  border-radius:2px;cursor:pointer;font-size:13px;text-decoration:none;font-family:inherit}
-.fstatus .alt button:hover,.fstatus .alt a:hover{border-color:#8FD0F4;background:rgba(143,208,244,.12)}
+.cmail{border:1px solid var(--hero-line);border-radius:2px;padding:clamp(22px,3vw,34px);background:rgba(255,255,255,.04)}
+.cmail h3{margin:0 0 12px;font-family:Archivo,system-ui,sans-serif;font-size:21px;letter-spacing:.01em;color:var(--hero-ink)}
+.cmail p{color:#CFE4F1;font-size:14.6px;line-height:1.75;margin:0 0 20px}
+.cmail-list{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:10px}
+.cmail-list li{display:grid;grid-template-columns:88px 1fr;gap:12px;align-items:baseline;font-size:14.4px}
+.cmail-list span{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--hero-ink-2)}
+.cmail-list b{color:var(--hero-ink);font-weight:500;word-break:break-all}
+@media (max-width:480px){.cmail-list li{grid-template-columns:1fr;gap:3px}}
+.fsubmit{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fnote{font-size:12.6px;color:var(--hero-ink-2);margin:14px 0 0;line-height:1.7}
+.fnote a{color:#8FD0F4}
 .fnote b{color:#8FD0F4;font-weight:600}
 
 /* footer */
@@ -808,69 +785,20 @@ form.cform{display:grid;grid-template-columns:1fr 1fr;gap:16px}
           <dt>E-mail</dt><dd><a href="mailto:myhero.lee@gmail.com">myhero.lee@gmail.com</a></dd>
         </dl>
       </div>
-      <form class="cform" id="cform" novalidate>
-        <div class="f full">
-          <label for="f-type">문의유형 <span class="req">*</span></label>
-          <select id="f-type" name="문의유형" required>
-            <option value="">선택해 주세요</option>
-            <option>Future Air Mobility</option>
-            <option>Vertiport·Infrastructure</option>
-            <option>Urban Integration</option>
-            <option>Safety Management System</option>
-            <option>Mobility Intelligence</option>
-            <option>Data·Blockchain</option>
-            <option>Urban Air Platform</option>
-            <option>R&amp;D·Partnership</option>
-            <option>기타</option>
-          </select>
-          <p class="err" id="e-type"></p>
-        </div>
-        <div class="f">
-          <label for="f-org">회사/기관명 <span class="req">*</span></label>
-          <input id="f-org" name="회사기관명" type="text" required autocomplete="organization">
-          <p class="err" id="e-org"></p>
-        </div>
-        <div class="f">
-          <label for="f-name">담당자명 <span class="req">*</span></label>
-          <input id="f-name" name="담당자명" type="text" required autocomplete="name">
-          <p class="err" id="e-name"></p>
-        </div>
-        <div class="f">
-          <label for="f-email">이메일 <span class="req">*</span></label>
-          <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="name@company.com">
-          <p class="err" id="e-email"></p>
-        </div>
-        <div class="f">
-          <label for="f-tel">연락처 <span class="req">*</span></label>
-          <input id="f-tel" name="연락처" type="tel" required autocomplete="tel" placeholder="02-0000-0000">
-          <p class="err" id="e-tel"></p>
-        </div>
-        <div class="f">
-          <label for="f-dept">부서 / 직책</label>
-          <input id="f-dept" name="부서직책" type="text">
-        </div>
-        <div class="f">
-          <label for="f-subj">문의제목</label>
-          <input id="f-subj" name="문의제목" type="text">
-        </div>
-        <div class="f full">
-          <label for="f-msg">문의내용 <span class="req">*</span></label>
-          <textarea id="f-msg" name="문의내용" required placeholder="검토 중인 사업 개요, 대상 지역, 일정 등을 남겨주시면 도움이 됩니다."></textarea>
-          <p class="err" id="e-msg"></p>
-        </div>
-        <div class="hp" aria-hidden="true"><label for="f-bot">Leave blank</label><input id="f-bot" name="botcheck" type="checkbox" tabindex="-1" autocomplete="off"></div>
-        <div class="agree">
-          <input id="f-agree" name="개인정보동의" type="checkbox" required>
-          <label for="f-agree">개인정보 수집·이용에 동의합니다. <span class="req">*</span>
-            <button type="button" data-modal="privacy">수집·이용 내용 보기</button></label>
-        </div>
-        <p class="err" id="e-agree" style="grid-column:1/-1;margin:-8px 0 0"></p>
-        <div class="fstatus" id="fstatus" role="status" hidden></div>
+      <div class="cmail" id="cmail">
+        <h3>문의 메일 보내기</h3>
+        <p>아래 버튼을 누르면 받는 사람·제목·문의 양식이 채워진 메일 작성 창이 열립니다. 회사/기관명, 담당자명, 연락처, 문의내용을 적어 보내 주시면 담당자가 확인 후 회신드립니다.</p>
+        <ul class="cmail-list">
+          <li><span>받는 사람</span><b id="cmail-to"></b></li>
+          <li><span>제목</span><b>[어반에어엑스 - 비즈니스, 솔루션 상담] 기관명, 담당자명</b></li>
+          <li><span>내용</span><b>문의유형 · 회사/기관명 · 담당자명 · 부서/직책 · 연락처 · 문의내용</b></li>
+        </ul>
         <div class="fsubmit">
-          <button class="btn btn-primary" type="submit" id="fsend">문의 메일 보내기</button>
-          <p class="fnote">버튼을 누르면 작성하신 내용이 담긴 메일 작성 창이 열립니다. 메일 앱에서 <b>보내기</b>를 누르면 <b>myhero.lee@gmail.com</b> 으로 접수됩니다.<br>영업일 기준 2~3일 이내에 회신드립니다.</p>
+          <a class="btn btn-primary" id="fsend" href="#contact">문의 메일 보내기</a>
+          <button type="button" class="btn btn-ghost" id="fcopy">문의 양식 복사</button>
         </div>
-      </form>
+        <p class="fnote">메일 앱이 열리지 않으면 <a id="fgmail" href="#contact" target="_blank" rel="noopener">Gmail 웹에서 보내기</a>를 이용하시거나, 「문의 양식 복사」 후 사용 중인 메일로 보내 주세요.<br>영업일 기준 2~3일 이내에 회신드립니다.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -906,7 +834,7 @@ form.cform{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 <template id="tpl-policy">
   <p>주식회사 어반에어엑스(이하 “회사”)는 「개인정보 보호법」에 따라 이용자의 개인정보를 보호하고 이와 관련한 고충을 신속하게 처리하기 위하여 다음과 같이 개인정보처리방침을 수립·공개합니다.</p>
   <h4>1. 수집하는 개인정보 항목</h4>
-  <p>홈페이지 문의 시 회사/기관명, 담당자명, 이메일, 연락처, 부서·직책(선택), 문의제목(선택), 문의내용을 수집합니다.</p>
+  <p>이메일 문의 시 회사/기관명, 담당자명, 이메일, 연락처, 부서·직책, 문의내용 등 이용자가 메일에 기재한 정보를 수집합니다.</p>
   <h4>2. 개인정보의 수집·이용 목적</h4>
   <p>문의 접수 확인 및 회신, 사업·기술 상담 진행, 상담 이력 관리를 위해 이용합니다.</p>
   <h4>3. 개인정보의 보유 및 이용기간</h4>
@@ -1112,7 +1040,7 @@ var STATIC={
  +'<p style="text-align:right;color:var(--ink);font-weight:600">주식회사 어반에어엑스 대표이사 &nbsp;김 원</p>'},
 
  privacy:{no:"Legal", title:"개인정보 수집·이용 안내", body:
-  '<h4>수집 항목</h4><p>회사/기관명, 담당자명, 이메일, 연락처, 부서·직책(선택), 문의제목(선택), 문의내용</p>'
+  '<h4>수집 항목</h4><p>회사/기관명, 담당자명, 이메일, 연락처, 부서·직책, 문의내용 등 이메일 문의 시 기재한 정보</p>'
  +'<h4>수집 목적</h4><p>문의 접수 확인 및 회신, 사업·기술 상담 진행, 상담 이력 관리</p>'
  +'<h4>보유 및 이용기간</h4><p>문의 처리 완료 후 3년간 보관하며, 기간 경과 시 지체 없이 파기합니다. 정보주체가 삭제를 요청하는 경우 즉시 파기합니다.</p>'
  +'<h4>동의 거부 권리</h4><p>개인정보 수집·이용에 동의하지 않으실 수 있으며, 이 경우 문의 접수 및 회신이 제한될 수 있습니다.</p>'
@@ -1202,14 +1130,9 @@ window.addEventListener("popstate",function(){
 /* ── 상담 연동 ─────────────────────────────── */
 function toContact(subject){
   var s=$("#contact"); if(!s) return;
+  if(subject) setMailTopic(subject);
   s.scrollIntoView({behavior:"smooth",block:"start"});
-  if(subject){
-    var sel=$("#f-type"), matched=false;
-    $$("option",sel).forEach(function(o){ if(o.textContent.trim()===String(subject).trim()){sel.value=o.value||o.textContent;matched=true} });
-    if(!matched) sel.value="R&D·Partnership";
-    $("#f-subj").value=subject;
-  }
-  setTimeout(function(){ $("#f-org").focus({preventScroll:true}) },600);
+  setTimeout(function(){ var b=$("#fsend"); if(b) b.focus({preventScroll:true}) },600);
 }
 
 /* ── 모바일 메뉴 ───────────────────────────── */
@@ -1235,91 +1158,54 @@ $$("#nav a").forEach(function(a){a.addEventListener("click",function(){ if(isMob
   secs.forEach(function(s){io.observe(s)});
 })();
 
-/* ── 문의 폼 ───────────────────────────────── */
-var form=$("#cform"), fstatus=$("#fstatus"), fsend=$("#fsend");
-var RULES=[
-  {id:"f-type", err:"e-type", msg:"문의유형을 선택해 주세요."},
-  {id:"f-org",  err:"e-org",  msg:"회사/기관명을 입력해 주세요."},
-  {id:"f-name", err:"e-name", msg:"담당자명을 입력해 주세요."},
-  {id:"f-email",err:"e-email",msg:"이메일을 입력해 주세요.", test:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)}, msg2:"이메일 형식을 확인해 주세요."},
-  {id:"f-tel",  err:"e-tel",  msg:"연락처를 입력해 주세요.", test:function(v){return /[0-9][0-9\-\s+()]{6,}/.test(v)}, msg2:"연락처 형식을 확인해 주세요."},
-  {id:"f-msg",  err:"e-msg",  msg:"문의내용을 입력해 주세요.", test:function(v){return v.trim().length>=10}, msg2:"문의내용을 10자 이상 입력해 주세요."}
-];
-function setErr(r,text){
-  var el=$("#"+r.id), box=el.closest(".f"), e=$("#"+r.err);
-  if(text){ box.classList.add("bad"); e.textContent=text; el.setAttribute("aria-invalid","true") }
-  else { box.classList.remove("bad"); e.textContent=""; el.removeAttribute("aria-invalid") }
-}
-function validate(){
-  var bad=null;
-  RULES.forEach(function(r){
-    var v=$("#"+r.id).value.trim();
-    if(!v){ setErr(r,r.msg); bad=bad||r.id; return }
-    if(r.test && !r.test(v)){ setErr(r,r.msg2); bad=bad||r.id; return }
-    setErr(r,"");
-  });
-  var ag=$("#f-agree"), ea=$("#e-agree");
-  if(!ag.checked){ ea.textContent="개인정보 수집·이용에 동의해 주세요."; bad=bad||"f-agree" } else ea.textContent="";
-  return bad;
-}
-function status(kind,text){ fstatus.hidden=false; fstatus.className="fstatus "+kind; fstatus.textContent=text }
-/* ── 메일 전송 방식 ──────────────────────────────
-   「문의 메일 보내기」를 누르면
-   ① 기본: 기기의 기본 메일 앱(mailto:)을 열어 받는 사람·제목·본문을 채워 줍니다.
-      (제목: [어반에어엑스 - 비즈니스, 솔루션 상담] 기관, 담당자명 / 본문: 신청 내용)
-   ② 대안: 같은 안내창에서 「Gmail 웹에서 보내기」「문의 내용 복사」를 제공합니다.
-   ─────────────────────────────────────────────── */
-function v(id){ return ($("#"+id).value||"").trim() }
-function composeMail(){
-  var subject="[어반에어엑스 - 비즈니스, 솔루션 상담] "+v("f-org")+", "+v("f-name");
-  var body=[
-    "[문의유형] "+v("f-type"),
-    "[회사/기관] "+v("f-org"),
-    "[담당자] "+v("f-name")+(v("f-dept")?" ("+v("f-dept")+")":""),
-    "[이메일] "+v("f-email"),
-    "[연락처] "+v("f-tel"),
+/* ── 문의 메일 ──────────────────────────────
+   「문의 메일 보내기」를 누르면 기기의 기본 메일 앱(mailto:)이 열리고
+   받는 사람(TO_EMAIL)·제목·문의 양식(본문)이 미리 채워집니다.
+   제목: [어반에어엑스 - 비즈니스, 솔루션 상담] 기관명, 담당자명  ← 보내는 분이 기관명·담당자명을 채워 보냅니다.
+   대안: 「Gmail 웹에서 보내기」 링크, 「문의 양식 복사」 버튼.
+   ─────────────────────────────────────────── */
+var MAIL_SUBJECT="[어반에어엑스 - 비즈니스, 솔루션 상담] 기관명, 담당자명";
+var mailTopic="";
+function mailBody(){
+  return [
+    "안녕하세요, 어반에어엑스 담당자님.",
+    "아래와 같이 비즈니스·솔루션 상담을 문의드립니다.",
+    "",
+    "[문의유형] "+(mailTopic||"(예: Vertiport·Infrastructure / Safety Management System / Data·Blockchain / R&D·Partnership 등)"),
+    "[회사/기관명] ",
+    "[담당자명] ",
+    "[부서/직책] ",
+    "[연락처] ",
     "",
     "[문의내용]",
-    v("f-msg"),
     "",
-    "※ 어반에어엑스 홈페이지(urbanair-x.com) 문의 폼에서 작성되었습니다."
+    "",
+    "※ 어반에어엑스 홈페이지(urbanair-x.com)에서 작성되었습니다."
   ].join("\n");
-  return {subject:subject, body:body};
 }
-function gmailURL(m){ return "https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(TO_EMAIL)+"&su="+encodeURIComponent(m.subject)+"&body="+encodeURIComponent(m.body) }
-function mailtoURL(m){ return "mailto:"+TO_EMAIL+"?subject="+encodeURIComponent(m.subject)+"&body="+encodeURIComponent(m.body) }
-function statusHTML(kind,html){ fstatus.hidden=false; fstatus.className="fstatus "+kind; fstatus.innerHTML=html }
-function altHTML(m){
-  return '<div class="alt"><span>메일 앱이 열리지 않나요? 아래 방법 중 하나로 <b>'+TO_EMAIL+'</b> 앞으로 보내 주세요.</span>'
-    +'<a href="'+gmailURL(m).replace(/"/g,"&quot;")+'" target="_blank" rel="noopener">Gmail 웹에서 보내기</a>'
-    +'<button type="button" id="fcopy">문의 내용 복사</button>'
-    +'<a href="'+mailtoURL(m).replace(/"/g,"&quot;")+'">메일 앱 다시 열기</a></div>';
+function mailtoURL(){ return "mailto:"+TO_EMAIL+"?subject="+encodeURIComponent(MAIL_SUBJECT)+"&body="+encodeURIComponent(mailBody()) }
+function gmailURL(){ return "https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(TO_EMAIL)+"&su="+encodeURIComponent(MAIL_SUBJECT)+"&body="+encodeURIComponent(mailBody()) }
+function renderMailLinks(){
+  var a=$("#fsend"), g=$("#fgmail"), to=$("#cmail-to");
+  if(a) a.href=mailtoURL();
+  if(g) g.href=gmailURL();
+  if(to) to.textContent=TO_EMAIL;
 }
-function bindCopy(m){
-  var b=$("#fcopy"); if(!b) return;
-  b.addEventListener("click",function(){
-    var text="받는 사람: "+TO_EMAIL+"\n제목: "+m.subject+"\n\n"+m.body;
-    var done=function(){ b.textContent="복사되었습니다 ✓"; setTimeout(function(){ b.textContent="문의 내용 복사" },2500) };
-    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done,function(){ legacyCopy(text); done() }) }
-    else { legacyCopy(text); done() }
-  });
-}
+function setMailTopic(t){ mailTopic=String(t||"").trim(); renderMailLinks() }
+renderMailLinks();
 function legacyCopy(text){
   var ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly",""); ta.style.position="fixed"; ta.style.left="-9999px";
   document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy") }catch(e){} document.body.removeChild(ta);
 }
-form.addEventListener("submit",function(e){
-  e.preventDefault();
-  if($("#f-bot").checked) return;
-  var bad=validate();
-  if(bad){ var el=$("#"+bad); el.focus(); el.scrollIntoView({behavior:"smooth",block:"center"});
-    status("bad","입력하지 않은 항목이 있습니다. 표시된 항목을 확인해 주세요."); return }
-  var m=composeMail();
-  try{ window.location.href=mailtoURL(m) }catch(err){}
-  statusHTML("ok",'<p>메일 작성 창을 열었습니다. 내용을 확인한 뒤 메일 앱의 <b>보내기</b>를 누르면 <b>'+TO_EMAIL+'</b> 으로 접수됩니다.</p>'+altHTML(m));
-  bindCopy(m);
-  fstatus.scrollIntoView({behavior:"smooth",block:"nearest"});
-});
+(function(){
+  var b=$("#fcopy"); if(!b) return;
+  b.addEventListener("click",function(){
+    var text="받는 사람: "+TO_EMAIL+"\n제목: "+MAIL_SUBJECT+"\n\n"+mailBody();
+    var done=function(){ b.textContent="복사되었습니다 ✓"; setTimeout(function(){ b.textContent="문의 양식 복사" },2500) };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done,function(){ legacyCopy(text); done() }) }
+    else { legacyCopy(text); done() }
+  });
+})();
 })();
 </script>
 
